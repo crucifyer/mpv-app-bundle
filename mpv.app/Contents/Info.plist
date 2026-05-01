@@ -1,0 +1,187 @@
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>mpv-wrapper</string>
+    <key>CFBundleIdentifier</key>
+    <string>org.mpv-player.macos</string>
+    <key>CFBundleName</key>
+    <string>mpv</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleIconFile</key>
+    <string>mpv.icns</string>
+    <key>LSArchitecturePriority</key>
+    <array>
+        <string>arm64</string>
+        <string>x86_64</string>
+    </array>
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLName</key>
+        <string>mpv URL</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>mpv</string>
+        </array>
+    </dict>
+</array>
+    <key>CFBundleDocumentTypes</key>
+<array>
+<dict>
+        <key>CFBundleTypeName</key>
+        <string>M3U Playlist</string>
+        <key>CFBundleTypeRole</key>
+        <string>Viewer</string>
+        <key>LSItemContentTypes</key>
+        <array>
+            <string>public.m3u-playlist</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>playlist_icon</string>
+    </dict>
+    <dict>
+        <key>CFBundleTypeName</key>
+        <string>XSPF Playlist</string>
+        <key>CFBundleTypeRole</key>
+        <string>Viewer</string>
+        <key>LSItemContentTypes</key>
+        <array>
+            <string>org.xiph.xspf-playlist</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>playlist_icon</string>
+    </dict>
+    <dict>
+        <key>CFBundleTypeName</key>
+        <string>PLS Playlist</string>
+        <key>CFBundleTypeRole</key>
+        <string>Viewer</string>
+        <key>LSItemContentTypes</key>
+        <array>
+            <string>public.pls-playlist</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>playlist_icon</string>
+    </dict>
+    <dict>
+	<key>CFBundleTypeName</key>
+	<string>Audio Document</string>
+	<key>CFBundleTypeRole</key>
+	<string>Viewer</string>
+	<key>LSHandlerRank</key>
+	<string>Owner</string>
+	<key>LSItemContentTypes</key>
+	<array>
+	    <string>public.audio</string>
+	    <string>public.ogg</string>
+	    <string>public.flac</string>
+	</array>
+    </dict>
+    <dict>
+	<key>CFBundleTypeName</key>
+	<string>Video Document</string>
+	<key>CFBundleTypeRole</key>
+	<string>Viewer</string>
+	<key>LSHandlerRank</key>
+	<string>Owner</string>
+	<key>LSItemContentTypes</key>
+	<array>
+	    <string>public.video</string>
+	    <string>public.movie</string>
+	    <string>public.mkv</string>
+	    <string>public.flv</string>
+	    <string>public.webm</string>
+	</array>
+    </dict>
+</array>
+<key>UTExportedTypeDeclarations</key>
+<array>
+    <dict>
+	<key>UTTypeIdentifier</key>
+	<string>public.mkv</string>
+	<key>UTTypeDescription</key>
+	<string>MKV Video</string>
+	<key>UTTypeConformsTo</key>
+	<array>
+	    <string>public.movie</string>
+	</array>
+	<key>UTTypeTagSpecification</key>
+	<dict>
+	    <key>public.filename-extension</key>
+	    <array>
+		<string>mkv</string>
+	    </array>
+	    <key>public.mime-type</key>
+	    <array>
+		<string>video/x-matroska</string>
+	    </array>
+	</dict>
+    </dict>
+    <dict>
+	<key>UTTypeIdentifier</key>
+	<string>public.ogg</string>
+	<key>UTTypeDescription</key>
+	<string>OGG Audio</string>
+	<key>UTTypeConformsTo</key>
+	<array>
+	    <string>public.audio</string>
+	</array>
+	<key>UTTypeTagSpecification</key>
+	<dict>
+	    <key>public.filename-extension</key>
+	    <array>
+		<string>ogg</string>
+	    </array>
+	    <key>public.mime-type</key>
+	    <array>
+		<string>audio/ogg</string>
+	    </array>
+	</dict>
+    </dict>
+    <dict>
+	<key>UTTypeIdentifier</key>
+	<string>public.flv</string>
+	<key>UTTypeDescription</key>
+	<string>FLV Video</string>
+	<key>UTTypeConformsTo</key>
+	<array>
+	    <string>public.movie</string>
+	</array>
+	<key>UTTypeTagSpecification</key>
+	<dict>
+	    <key>public.filename-extension</key>
+	    <array>
+		<string>flv</string>
+	    </array>
+	    <key>public.mime-type</key>
+	    <array>
+		<string>video/x-flv</string>
+	    </array>
+	</dict>
+    </dict>
+    <dict>
+	<key>UTTypeIdentifier</key>
+	<string>public.webm</string>
+	<key>UTTypeDescription</key>
+	<string>WebM Video</string>
+	<key>UTTypeConformsTo</key>
+	<array>
+	    <string>public.movie</string>
+	</array>
+	<key>UTTypeTagSpecification</key>
+	<dict>
+	    <key>public.filename-extension</key>
+	    <array>
+		<string>webm</string>
+	    </array>
+	    <key>public.mime-type</key>
+	    <array>
+		<string>video/webm</string>
+	    </array>
+	</dict>
+    </dict>
+</array>
+</dict>
+</plist>

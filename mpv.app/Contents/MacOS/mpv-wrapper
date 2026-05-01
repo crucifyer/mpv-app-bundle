@@ -1,0 +1,30 @@
+#!/opt/homebrew/bin/python3
+import sys
+import os
+import urllib.parse
+import subprocess
+from Cocoa import NSObject, NSApplication, NSAppleEventManager
+from PyObjCTools import AppHelper
+
+MPV_PATH = "/opt/homebrew/bin/mpv"
+
+def process_path(raw_path):
+    final_path = raw_path
+    if final_path.startswith("mpv://"):
+        final_path = final_path.replace("mpv://", "file://", 1)
+    os.environ["MPV_HOME"] = os.path.expanduser("~/.config/mpv")
+    subprocess.run([MPV_PATH, "--player-operation-mode=pseudo-gui", final_path])
+
+class AppDelegate(NSObject):
+    def application_openFiles_(self, app, filenames):
+        for f in filenames:
+            process_path(f)
+            
+    def application_openURLs_(self, app, urls):
+        for url in urls:
+            process_path(url.absoluteString())
+
+if __name__ == "__main__":
+    delegate = AppDelegate.alloc().init()
+    NSApplication.sharedApplication().setDelegate_(delegate)
+    AppHelper.runEventLoop()

@@ -11,9 +11,18 @@
 5. mpv.conf input.conf 는 편의 설정이니 내용보고 적용할 지 판단하면 됩니다.
 
 ```bash
+python3 -m venv ~/.config/venv/cocoa
+. ~/.config/venv/cocoa/bin/activate
+pip install --upgrade pip
+pip install pyobjc-framework-Cocoa
+
 git clone https://github.com/crucifyer/mpv-app-bundle.git
 cd mpv-app-bundle
+echo '#!'"${HOME}/.local/venv/cocoa/bin/python3" > mpv-wrapper
+cat mpv.app/Contents/MacOS/mpv-wrapper >> mpv-wrapper
+chmod +x mpv-wrapper
 cp -a mpv.app /Applications/
+cp -a mpv-wrapper /Applications/mpv.app/Contents/MacOS/
 mkdir -p ~/.config/mpv
 cp .config/mpv/* ~/.config/mpv/
 cd ..

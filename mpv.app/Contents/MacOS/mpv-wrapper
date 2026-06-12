@@ -1,4 +1,3 @@
-#!/opt/homebrew/bin/python3
 import sys
 import os
 import urllib.parse
@@ -19,7 +18,7 @@ class AppDelegate(NSObject):
     def application_openFiles_(self, app, filenames):
         for f in filenames:
             process_path(f)
-            
+
     def application_openURLs_(self, app, urls):
         for url in urls:
             process_path(url.absoluteString())

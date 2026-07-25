@@ -1,8 +1,7 @@
 import sys
 import os
-import urllib.parse
 import subprocess
-from Cocoa import NSObject, NSApplication, NSAppleEventManager
+from Cocoa import NSObject, NSApplication, NSMenu, NSMenuItem
 from PyObjCTools import AppHelper
 
 MPV_PATH = "/opt/homebrew/bin/mpv"
@@ -23,7 +22,22 @@ class AppDelegate(NSObject):
         for url in urls:
             process_path(url.absoluteString())
 
+    def terminate_(self, sender):
+        NSApplication.sharedApplication().terminate_(self)
+
 if __name__ == "__main__":
     delegate = AppDelegate.alloc().init()
-    NSApplication.sharedApplication().setDelegate_(delegate)
+    app = NSApplication.sharedApplication()
+    app.setDelegate_(delegate)
+
+    mainMenu = NSMenu.alloc().init()
+    appMenuItem = NSMenuItem.alloc().init()
+    mainMenu.addItem_(appMenuItem)
+    app.setMainMenu_(mainMenu)
+
+    appMenu = NSMenu.alloc().initWithTitle_("Application")
+    quitItem = NSMenuItem.alloc().initWithTitle_action_keyEquivalent_("Quit", "terminate:", "q")
+    appMenu.addItem_(quitItem)
+    appMenuItem.setSubmenu_(appMenu)
+
     AppHelper.runEventLoop()
